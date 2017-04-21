@@ -1,1 +1,39 @@
-{     "devDependencies": {         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-mach",     "homepage": "https://github.com/npmtest/node-npmtest-mach",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-mach.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [mach (v1.3.8)](https://github.com/mjackson/mach)  [![npm package](https://img.shields.io/npm/v/npmtest-mach.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-mach) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-mach.svg)](https://travis-ci.org/npmtest/node-npmtest-mach)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-mach",
+    "keywords": [
+        "coverage",
+        "test",
+        "mach"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_mach.js",
+    "name": "npmtest-mach",
+    "nameAlias": "npmtest_mach",
+    "nameOriginal": "npmtest-mach",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-mach.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
